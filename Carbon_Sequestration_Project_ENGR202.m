@@ -13,7 +13,8 @@ Year = xlsread('UNdata_Export_20250503_165309045.xlsx','B1345:B1376');
 
 CarbonLevel = xlsread('UNdata_Export_20250503_165309045.xlsx','C1345:C1376');
 
-% Future if then conditional code will divide up country names
+% Future if then conditional code will divide up country names, or assign color coding, or display a message
+% if the carbon amount surpasses a certain threshold
 
 
 % The following will consist of graphing functions using the 'bar' command
