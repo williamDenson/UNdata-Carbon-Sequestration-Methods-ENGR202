@@ -9,10 +9,16 @@
 clc
 clear all
 
-Year = xlsread('UNdata_Export_20250503_165309045.xlsx','B2:B1990');
+Year = xlsread('UNdata_Export_20250503_165309045.xlsx','B1345:B1376');
 
-CarbonLevel = xlsread('UNdata_Export_20250503_165309045.xlsx','C2:C1990');
+CarbonLevel = xlsread('UNdata_Export_20250503_165309045.xlsx','C1345:C1376');
 
+% Future if then conditional code will divide up country names
+
+
+% The following will consist of graphing functions using the 'bar' command
+% Year range values will bechanged within the parameter set to fix a unique XData
+% error
 figure(1)
-plot(Year,CarbonLevel,'ro'); hold on;
+bar(Year,CarbonLevel); hold on;
 
