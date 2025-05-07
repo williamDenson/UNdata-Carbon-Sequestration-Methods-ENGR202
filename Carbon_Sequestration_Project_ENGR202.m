@@ -30,9 +30,26 @@ CountriesCarbon = [UnitedStates Australia Canada Russia];
 % The United States (blue) shows considerable consumption and generation of
 % carbon compared to Canada and Australia
 figure(1)
-bar(YearCarbon,CountriesCarbon)
+
+% "stacked" parameter for "Each section in the stack corresponds to an
+% element of y" - Reference: MATLAB Mathworks ref:bar using double quotes
+bar(YearCarbon,CountriesCarbon,"stacked")
 xlabel('Time(s)');
 ylabel('kilotonne');
+
+[xMAx,idx] = max(UnitedStates)
+
+% Enter a threshold amount (input statement)
+
+for i=1:size(UnitedStates)
+
+    % A threshold of 6 million kilotonnes is used as a reference for
+    % determining if a threshold is met
+    if UnitedStates(i) > 6000000 % threshold input
+        %fprintf "over a limit with the max at %idx"
+        disp("Threshold met for this country");
+    end
+end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -45,9 +62,9 @@ Finland = xlsread('UNdata_Export_20250503_202706877.xlsx','C162:C192');
 
 CountriesGreenhouse = [Bulgaria Cyprus Czechia Finland];
 
-% bar(YearGreenhouse,CountriesGreenhouse)
-% xlabel('Time(s)');
-% ylabel('kilotonne');
+bar(YearGreenhouse,CountriesGreenhouse)
+xlabel('Time(s)');
+ylabel('kilotonne');
 
 % This plot shows considerable variation in greenhouse gases from the
 % UNdata set. The gas profile presented does not include general forestry
@@ -55,4 +72,4 @@ CountriesGreenhouse = [Bulgaria Cyprus Czechia Finland];
 % UNdata set: "Greenhouse Gas (GHGs) Emissions, including Indirect CO2,
 % without LULUCF..."
 figure(2)
-plot(YearGreenhouse,CountriesGreenhouse)
+plot(YearGreenhouse,CountriesGreenhouse,LineWidth=3,LineStyle="-")
